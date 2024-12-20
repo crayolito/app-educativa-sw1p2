@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:app_p2sw1/config/local_notificacions/local_notificacions.dart';
 import 'package:app_p2sw1/domain/entities/push_message.dart';
 import 'package:app_p2sw1/firebase_options.dart';
+import 'package:app_p2sw1/presentacion/features/alojamientos/data/map-theme.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -27,7 +28,17 @@ class NotificacionesBloc
   NotificacionesBloc() : super(const NotificacionesState()) {
     on<OnChangePermissionNotifi>(_onChangePermissionNotifi);
     on<OnNotificationReceived>(_onNotificationReceived);
-
+    on<OnLocalNotificacionMessage>((event, emit) {
+      int numeroFormulariosEstadoFalse =
+          formulariosOpiniones.where((formulario) => !formulario.estado).length;
+      LocalNotifications.showLocalNotification(
+        id: 1,
+        title: 'UrpiTours.com valora tu opinión',
+        body:
+            'Hola, en UrpiTours siempre estamos buscando mejorar nuestra calidad de servicio. Te quedan $numeroFormulariosEstadoFalse formularios por completar. Nos encantaría conocer tu opinión. ¿Podrías tomarte un momento para llenar nuestro cuestionario? ¡Gracias por ayudarnos a crecer!',
+        // data: notification.data.toString(),
+      );
+    });
     // Verificar estado de las notificaciones
     _initialStatusCheck();
     // Listener para mensajes en primer plano (foreground)

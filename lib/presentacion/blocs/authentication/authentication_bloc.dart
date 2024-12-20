@@ -1,3 +1,4 @@
+import 'package:app_p2sw1/presentacion/features/home/domain/entities/auth.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -9,19 +10,26 @@ class AuthenticationBloc
   AuthenticationBloc() : super(const AuthenticationState()) {
     on<OnChangeEstadoAuth>((event, emit) {
       switch (event.value) {
-        case "Estudiante":
-          emit(state.copyWith(estadoAuth: EstadoAuth.estudiante));
+        case "Puntos Alojamiento":
+          emit(state.copyWith(estadoAuth: EstadoAuth.alojamiento));
           break;
-        case "Apoderado":
-          emit(state.copyWith(estadoAuth: EstadoAuth.apoderado));
+        case "Atracciones Turisticas":
+          emit(state.copyWith(estadoAuth: EstadoAuth.turismo));
           break;
-        case "Profesor":
-          emit(state.copyWith(estadoAuth: EstadoAuth.maestro));
-          break;
-        default:
-          emit(state.copyWith(estadoAuth: EstadoAuth.chofer));
+        case "Centros de Vuelos":
+          emit(state.copyWith(estadoAuth: EstadoAuth.turismo));
           break;
       }
+    });
+    on<OnProcessFormAuthUser>((event, emit) {
+      AuthUser authUser =
+          AuthUser(id: 1, email: event.email, password: "clave123");
+      emit(state.copyWith(authUser: authUser));
+      // ignore: avoid_print
+      print({
+        "email": state.authUser!.email,
+        "password": state.authUser!.password,
+      });
     });
   }
 }

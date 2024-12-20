@@ -24,3 +24,7 @@ class OnNotificationReceived extends NotificacionesEvent {
   // ignore: prefer_const_constructors_in_immutables
   OnNotificationReceived(this.message);
 }
+
+class OnLocalNotificacionMessage extends NotificacionesEvent {
+  const OnLocalNotificacionMessage();
+}

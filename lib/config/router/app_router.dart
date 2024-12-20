@@ -1,10 +1,8 @@
-import 'package:app_p2sw1/presentacion/features/apoderado/screen/calificaciones-estudiante.dart';
-import 'package:app_p2sw1/presentacion/features/apoderado/screen/control-estudiante.dart';
-import 'package:app_p2sw1/presentacion/features/apoderado/screen/notificaciones-apoderado.dart';
-import 'package:app_p2sw1/presentacion/features/chofer-bus/screens/interfaz-ruta.dart';
-import 'package:app_p2sw1/presentacion/features/estudiante/screens/asistencia-screen.dart';
-import 'package:app_p2sw1/presentacion/features/home/screen/authentication-screen.dart';
-import 'package:app_p2sw1/presentacion/features/profesor/screen/generar-asistencia.dart';
+import 'package:app_p2sw1/presentacion/features/alojamientos/presentation/screens/formulario-screen.dart';
+import 'package:app_p2sw1/presentacion/features/alojamientos/presentation/screens/list-state-form-screen.dart';
+import 'package:app_p2sw1/presentacion/features/alojamientos/presentation/screens/map-screen.dart';
+import 'package:app_p2sw1/presentacion/features/alojamientos/presentation/screens/search-point-screen.dart';
+import 'package:app_p2sw1/presentacion/features/home/presentation/screen/authentication-screen.dart';
 import 'package:go_router/go_router.dart';
 
 final appRouter = GoRouter(routes: [
@@ -19,26 +17,17 @@ final appRouter = GoRouter(routes: [
   //     );
   //   },
   // ),
-  // CHOFER
+  // Alojamientos
   GoRoute(
-      path: '/interfaz-chofer',
-      builder: (context, state) => const MapaRutasChofer()),
-  // APODERADO
+      path: '/mapa-alojamientos',
+      builder: (context, state) => const MapScreenn()),
   GoRoute(
-      path: '/interfaz-apoderado',
-      builder: (context, state) => const ControlEstudiante()),
+      path: '/search-point',
+      builder: (context, state) => const SearchPointScreen()),
   GoRoute(
-      path: '/notificaciones-apoderado',
-      builder: (context, state) => const NotificacionesApoderado()),
+      path: '/list-state-form',
+      builder: (context, state) => const ListStateFormScreen()),
   GoRoute(
-      path: '/calificaciones-estudiante',
-      builder: (context, state) => const CalificacionesEstudiante()),
-  // ESTUDIANTE
-  GoRoute(
-      path: '/toma-asistencia',
-      builder: (context, state) => const InterfazEstudianteScreen()),
-  // PROFESOR
-  GoRoute(
-      path: '/asistencia-estudiante',
-      builder: (context, state) => const GenerarAsistencia()),
+      path: '/formulario',
+      builder: (context, state) => const FormularioScreen()),
 ]);

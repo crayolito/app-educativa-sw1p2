@@ -29,3 +29,7 @@ class OnClearFigureMap extends MapEvent {
 class OnResetState extends MapEvent {
   const OnResetState();
 }
+
+class OnInitFigureMap extends MapEvent {
+  const OnInitFigureMap();
+}

@@ -26,20 +26,26 @@ class IconButtonCustom extends StatelessWidget {
       width: 65,
       decoration: decoration,
       child: FloatingActionButton(
-        heroTag: heroTag,
-        onPressed: onPressed,
-        backgroundColor: Colors.white.withOpacity(0.85),
-        shape: const CircleBorder(),
-        child: Transform.translate(
-          offset: const Offset(5, 0),
+          heroTag: heroTag,
+          onPressed: onPressed,
+          backgroundColor: Colors.white.withOpacity(0.85),
+          shape: const CircleBorder(),
           child: Icon(
             icon,
             color: const Color(0xff424530),
             size: 35,
             shadows: shadowPPN3,
+          )
+          // Transform.translate(
+          //   offset: const Offset(5, 0),
+          //   child: Icon(
+          //     icon,
+          //     color: const Color(0xff424530),
+          //     size: 35,
+          //     shadows: shadowPPN3,
+          //   ),
+          // ),
           ),
-        ),
-      ),
     );
   }
 }
